@@ -1,0 +1,6 @@
+4 ways to return char* in C functions
+
+1. use char* as function parameter
+2. use malloc, then free it in the main function
+3. return static char*
+4. define global variable
