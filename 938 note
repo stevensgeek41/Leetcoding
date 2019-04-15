@@ -1,0 +1,11 @@
+On Leetcode Input:
+Leetcode's input is not necessarily the input of your function.
+
+On BST:
+BST is not necessarily a complete binary tree.
+You should get used to the input parameter of treeNode* or something like that, don't overthink about it as an array.
+
+On recursion:
+Recursion can make your code easier to write, yet slower to run. 
+In leetcode, your function will be called multiple times for testing, so don't use a static variable.
+You can return the right sum using only local variables.
