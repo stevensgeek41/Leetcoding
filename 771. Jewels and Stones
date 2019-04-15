@@ -1,0 +1,27 @@
+int numJewelsInStones(char* J, char* S) {
+    int j = 0, i = 0, count = 0, lenS = 0, lenJ = 0;
+    char ch = ' ';
+    for(j = 0; j < 50; j++){
+        if(S[j] == 0)
+            break;
+    }
+    lenS = j;
+    for(i = 0; i < 50; i++){
+        if(J[i] == 0)
+            break;
+    }
+    lenJ = i;
+    
+    
+    for(i = 0; i < lenJ; i++){
+        ch = J[i];
+        for(j = 0; j < lenS; j++){
+            if(S[j] == ch)
+                count++;
+        }
+    }
+    
+    return count;
+    
+    
+}
