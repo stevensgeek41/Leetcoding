@@ -1,6 +1,7 @@
 
 1. vector
 vector<int> a(n):          make a vector's size to be n and initialize it with 0
+use push_back to add new element to the vector. never use [] to add value to a vector
 
 2. string
 string s1;           create an empty string (with 1 '\0' at the end)
