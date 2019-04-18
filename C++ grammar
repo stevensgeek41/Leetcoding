@@ -4,3 +4,6 @@ vector<int> a(n):          make a vector's size to be n and initialize it with 0
 
 2. string
 string s1;           create an empty string (with 1 '\0' at the end)
+
+3. new
+TreeNode* rootPtr = new TreeNode(val);      it's that easy
