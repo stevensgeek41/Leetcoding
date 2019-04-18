@@ -1,0 +1,3 @@
+On preorder traversal
+
+1. always try to find which segment is left and which is right, then divide and conquer
