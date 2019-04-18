@@ -1,0 +1,4 @@
+On string
+
+1. strings do end in '\0' (ASCII 0) typically.
+2. You can't define an empty char.
