@@ -1,0 +1,48 @@
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& A) {
+        vector<int> negative;
+        vector<int> postive;
+        vector<int> ans;
+        int i = 0, size = A.size(), j = 0, pos = 0;
+        
+        for(i = 0; i < size; i++){
+            if(A[i] < 0){
+                negative.push_back(A[i] * A[i]);
+            }else{
+                postive.push_back(A[i] * A[i]);
+            }
+        }
+        
+        
+        for(i = negative.size() - 1; i >= 0; i--){
+            for(j = pos; j < postive.size(); j++){
+                if(negative[i] < postive[j]){
+                    ans.push_back(negative[i]);
+                    break;
+                }else{
+                    ans.push_back(postive[j]);
+                }
+            }
+            pos = j;
+            if(pos >= postive.size()){
+                break;
+            }
+        }
+        // cout << i << endl;
+        // cout << negative[0] << endl;
+        if(i >= 0){
+            for(j = i; j >=0; j--){
+                ans.push_back(negative[j]);
+            }
+            
+        }else{
+            for(j = pos; j < postive.size(); j++){
+                ans.push_back(postive[j]);
+            }
+        }
+        
+        return ans;
+        
+    }
+};
