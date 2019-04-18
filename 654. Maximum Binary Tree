@@ -1,0 +1,30 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+struct TreeNode* constructMaximumBinaryTree(int* nums, int numsSize) {
+    if(numsSize == 0){
+        return NULL;
+    }
+    
+    int max = nums[0], i = 0, pos = 0;
+    for(i = 0; i < numsSize; i++){
+        if(nums[i] > max){
+            max = nums[i];
+            pos = i;
+        }
+    }
+    
+    struct TreeNode* T = (struct TreeNode*)malloc(sizeof(struct TreeNode));
+    T->val = max;
+    T->left = constructMaximumBinaryTree(nums,pos);
+    T->right = constructMaximumBinaryTree(nums+pos+1, numsSize- pos - 1);
+    
+    return T;
+    
+    
+}
