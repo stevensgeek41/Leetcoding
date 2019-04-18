@@ -1,0 +1,17 @@
+char* toLowerCase(char* str) {
+    char* str_tmp = str;
+    char ch_old = ' ', ch_new = ' ';
+    int dif = 'A' - 'a';
+    while(*str_tmp != 0){
+        ch_old = *str_tmp;
+        if(ch_old <= 'Z' && ch_old >= 'A'){
+            ch_new = ch_old - dif;
+            *str_tmp = ch_new;
+            
+        }
+        str_tmp++;
+            
+    }
+    return str;
+    
+}
