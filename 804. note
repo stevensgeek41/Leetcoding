@@ -1,0 +1,9 @@
+On 2-D string matrix in C
+1. you can ignore the first dimension if all the string elements are already known when initialized.
+2. otherwise you need to explicitly set the first and second dimension
+
+On strcat(str1,str2)
+1. connect two strings, then save it in the first string
+
+On counting different types of string in one group
+1. the key is to judge if its two strings are same, if true, then ignore that string. This methhod can be reused under similar circumstances.
