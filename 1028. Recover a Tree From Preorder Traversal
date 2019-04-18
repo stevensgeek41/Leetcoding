@@ -1,0 +1,75 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+
+class Solution {
+public:
+   
+    
+    TreeNode* recoverFromPreorder(string S) {
+        int i = 0, size = S.size(), depthRoot = 0, j = 0, num = 0, flag = 0;
+        string Sleft, Sright, numStr;
+        //cout << size << endl;
+        if(size == 0){
+            return NULL;
+        }
+        
+        for(i = 0; i < size; i++){
+            if(S[i] != '-'){
+                flag = 1;
+                numStr += S[i];
+            }else{
+                if(flag == 1){
+                    break;
+                }
+                depthRoot++;
+            }
+        }
+        // while(S[i] == '-'){
+        //     depthRoot++;
+        //     i++;
+        // }
+        // while(S[i] != '-'){
+        //     numStr += S[i++]; 
+        // }
+        // cout << depthRoot << endl;
+        // cout << numStr << endl;
+        num = atoi(numStr.c_str());
+        
+        TreeNode* root = new TreeNode(num);
+        int depthNext = 0, left = i, right = size;
+        for(j = i+depthRoot+1; j < size; j++){
+            if(S[j] != '-'){
+                if(depthNext == depthRoot + 1){
+                    right = j - (depthNext);
+                    break;
+                }else{
+                    depthNext = 0;
+                }
+            }else{
+                depthNext++;
+            }
+            
+        }
+        for(i = left; i < right; i++){
+            Sleft += S[i];
+        }
+        
+        for(i = right; i < size; i++){
+            Sright += S[i];
+        }
+        
+        root->left = recoverFromPreorder(Sleft);
+        root->right = recoverFromPreorder(Sright);
+        
+        return root;
+        
+        
+    }
+};
