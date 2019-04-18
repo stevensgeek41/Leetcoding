@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int repeatedNTimes(vector<int>& A) {
+        int N = A.size() / 2, i = 0, num = 0;
+        // cout << N << endl;
+        vector<int> count(10000);
+        for(i = 0; i <= N + 1; i++){
+            num = A[i];
+            
+            count[num] = count[num] + 1;
+            if(count[num] > 1){
+                break;
+            }
+        }
+        return num;
+        
+        
+    }
+};
