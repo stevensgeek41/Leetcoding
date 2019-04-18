@@ -1,0 +1,29 @@
+char dictionary[][5] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+int uniqueMorseRepresentations(char** words, int wordsSize) {
+    
+    int i = 0, j = 0, count = 0;
+    char code[100][48] = {0};
+    int visit[100] = {0};
+    for(i = 0; i < wordsSize; i++){
+        char* word_tmp = words[i];
+        while(*word_tmp != 0){
+            
+            strcat(code[i],dictionary[*word_tmp - 'a']);
+            word_tmp++; 
+        }  
+    }
+    for(i = 0; i < wordsSize; i++){
+        if(visit[i] != 0){
+            continue;
+        }
+        visit[i] = 1;
+        count = count + 1;
+        for(j = i + 1; j < wordsSize;j++){
+            if(strcmp(code[i],code[j]) == 0){
+                visit[j] = 1;
+            }
+        }
+    }
+    return count;
+    
+}
