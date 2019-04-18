@@ -1,0 +1,20 @@
+class Solution {
+public:
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& A) {
+        int num = A.size();
+        int lenth = A[0].size();
+        int n = round(lenth / 2), i = 0, j = 0;
+        for(j = 0; j < num; j++){
+            for(i = 0; i < n; i++){
+                int t = A[j][i];
+                A[j][i] = A[j][lenth - i - 1];
+                A[j][lenth - i - 1] = t;
+            }
+            for(i = 0; i < lenth; i++){
+                A[j][i] ^= 1;
+            }
+        }
+        return A;
+        
+    }
+};
