@@ -1,0 +1,4 @@
+1. watchout the if condition's ==, make sure it's not =
+2. the right way to spell "null" is NULL
+3. when in C++, don't forget using namespace std
+4. keep your loop variable consistent
