@@ -2,3 +2,4 @@
 2. the right way to spell "null" is NULL
 3. when in C++, don't forget using namespace std
 4. keep your loop variable consistent
+5. don't forget to check your if/else's span, see if it's really what you need or contain something else
