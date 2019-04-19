@@ -1,0 +1,3 @@
+On graph problems
+1. when it's a graph problem, it's either bfs or dfs, nothing else
+2. this problem tries to count unique paths, then rember to get a vertex unvisited when go back to its previous vertex
