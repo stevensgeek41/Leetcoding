@@ -1,0 +1,66 @@
+class Solution {
+public:
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+        int i = 0, j = 0, k = 0, size = pattern.size(), wordNum = words.size();
+        
+        vector<int> easypattern;
+        vector<string> ans;
+        for(i = 0; i < size; i++){
+            easypattern.push_back(-1);
+        }
+        for(i = 0; i < size; i++){
+            if(easypattern[i] != -1){
+                continue;
+            }
+            easypattern[i] = i;
+            for(j = i+1; j < size; j++){
+                if(easypattern[j] != -1){
+                    continue;
+                }
+                if(pattern[i] == pattern[j]){
+                    easypattern[j] = i;
+                }
+                
+            }
+        }
+        
+        for(k = 0; k < wordNum; k++){
+            int wordLen = words[k].size();
+            if(wordLen != size){
+                continue;
+            }
+            bool flag = 1;
+            vector<int> tmppattern;
+            for(i = 0; i < wordLen; i++){
+                tmppattern.push_back(-1);
+            }
+            for(i = 0; i < wordLen; i++){
+                if(tmppattern[i] != -1){
+                    continue;
+                }
+                tmppattern[i] = i;
+                for(j = i+1; j < wordLen; j++){
+                    if(tmppattern[j] != -1){
+                        continue;
+                    }
+                    if(words[k][i] == words[k][j]){
+                        tmppattern[j] = i;
+                    }
+
+                }
+            }
+            for(i = 0; i < size; i++){
+                if(tmppattern[i] != easypattern[i]){
+                    flag = 0;
+                    break;
+                }
+            }
+            if(flag){
+                ans.push_back(words[k]);
+            }
+            
+        }
+        return ans;
+        
+    }
+};
