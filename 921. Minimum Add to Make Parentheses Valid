@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int minAddToMakeValid(string S) {
+        int i = 0, size = S.size(), count1 = 0, count2 = 0, sum = 0;
+        
+        for(i = 0; i < size; i++){
+            if(S[i] == '('){
+                count1++;
+                
+            }
+            
+            if(S[i] == ')' && count1 == 0){
+                count2++;
+                continue;
+            }else if(S[i] == ')'){
+                count1--;
+            }
+            
+        }
+        sum = count1 + count2;
+        return sum;
+        
+    }
+};
