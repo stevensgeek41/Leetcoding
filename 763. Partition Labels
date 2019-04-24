@@ -1,0 +1,38 @@
+class Solution {
+public:
+    vector<int> partitionLabels(string S) {
+        int i = 0, size = S.size(), count = 0, flag = 1, j = 0, type = 0;
+        vector<int> ans;
+        vector<int> num(26);
+        vector<int> cur(26);
+        
+        for(i = 0; i < size; i++){
+            num[S[i] - 'a']++;
+        }
+        for(i = 0; i < size; i++){
+            int tmp = S[i] - 'a';
+            if(cur[tmp] == 0){
+                type++;
+                cur[tmp] = 1;
+                
+            }
+            num[tmp]--;
+            count++;
+            for(j = 0; j < 26 && type > 0; j++){
+                if(cur[j] == 1){
+                    if(num[j] == 0){
+                        type--;
+                        cur[j] = 0;
+                    }
+                }
+            }
+            if(type == 0){
+                ans.push_back(count);
+                count = 0;
+            }
+        }
+        return ans;
+            
+        
+    }
+};
