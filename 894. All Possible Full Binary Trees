@@ -1,0 +1,61 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    
+    vector<TreeNode*> allPossibleFBT(int N) {
+        
+        
+        vector<TreeNode*> ans;
+        int i = 0;
+        if(N%2 == 0){
+            return ans;
+        }
+        
+        
+        
+            
+        if(N == 1){
+            TreeNode* root = new TreeNode(0);
+            ans.push_back(root);
+            return ans;
+        }else if(N == 3){
+            TreeNode* root = new TreeNode(0);
+            root->left = new TreeNode(0);
+            root->right = new TreeNode(0);
+            ans.push_back(root);
+            return ans;
+        }else{
+            int i = 1, j = 1, k = 0, l = 0;
+            for(i = 1; i <= N - 2; i += 2){
+                j = N - i - 1;
+                // cout << j << endl;
+                
+                vector<TreeNode*> tmp1 = allPossibleFBT(i);
+                vector<TreeNode*> tmp2 = allPossibleFBT(j);
+                for(k = 0; k < tmp1.size(); k++){
+                    for(l = 0; l < tmp2.size(); l++){
+                        TreeNode* root = new TreeNode(0);
+                        root->left = tmp1[k];
+                        root->right = tmp2[l];
+                        ans.push_back(root);
+                        
+                    }
+                }
+            }
+            
+            
+            return ans;
+            
+        }
+            
+    }
+            
+};
