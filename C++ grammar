@@ -3,6 +3,7 @@
 vector<int> a(n):          make a vector's size to be n and initialize it with 0
 use push_back to add new element to the vector. never use [] to add value to a vector
 vector<vector<int>> visited(row,vector<int>(col));            how to initialize a 2-D vector
+vector<ptr*>                  this needs to be thought very carefully, as if ptr* changes, the whole thing in vector will change, so better use "new" every time if you want different ptr values.
 
 2. string
 string s1;           create an empty string (with 1 '\0' at the end)
