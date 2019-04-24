@@ -1,0 +1,4 @@
+On tree
+If it's a tree problem, you should use a recursion.
+If you find it's difficult to imagine by yourself what the answer is, it's time for recursion.
+Always start with easy cases, and then find the pattern.
