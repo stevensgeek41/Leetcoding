@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> diStringMatch(string S) {
+        
+        int i = 0, size = S.size(), j = 0;
+        vector<int> ans;
+        for(i = 0; i < size+1; i++){
+            ans.push_back(i);
+        }
+        // for(i = 0; i < size+1; i++){
+        //     cout << ans[i] << endl;
+        // }
+        for(i = 0; i < size; i++){
+            if(S[i] == 'D'){
+                int tmp = ans[i+1];
+                ans[i+1] = ans[i];
+                ans[i] = tmp;
+                for(j = i; j > 0 && S[j-1] == 'D';j--){
+                    // cout << ans[i] << endl;
+                    if(ans[j] > ans[j-1]){
+                        tmp = ans[j];
+                        ans[j] = ans[j-1];
+                        ans[j-1] = tmp;                        
+                    }
+                }
+            }
+        }
+        return ans;
+        
+    }
+};
