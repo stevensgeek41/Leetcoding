@@ -1,0 +1,57 @@
+class Solution {
+public:
+    vector<int> selfDividingNumbers(int left, int right) {
+        int i = 0, j = 0, k= 0;
+        bool flag = 1;
+        vector<int> ans;
+        for(i = left; i <= right; i++){
+            flag = 1;
+            if(i < 10){
+                ans.push_back(i);
+            }else if(i < 100){
+                j = i % 10;
+                // cout << "i = " << i << ";" << "j =" << j << endl;
+                if(j == 0){
+                    continue;
+                }
+                if(i % j == 0){
+                    j = i / 10;
+                    if(i % j == 0){
+                        ans.push_back(i);
+                    }
+                }
+            }else{
+                
+                k = i % 10;
+                if(k == 0){
+                    continue;
+                }
+                j = i;
+                while(k > 0){
+                    if(i % k != 0){
+                        flag = 0;
+                        break;
+                    }
+                    j = j / 10;
+                    if(j < 10){
+                        k = j;
+                    }else{
+                        k = j % 10;
+                    }
+                    
+                    if(k == 0 && j > 0){
+                        flag = 0;
+                        break;
+                    }
+                    
+                }
+                if(flag){
+                    ans.push_back(i);
+                }
+                
+            }
+        }
+        return ans;
+        
+    }
+};
