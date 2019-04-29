@@ -1,0 +1,55 @@
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val, vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+*/
+// struct myStack{
+//     vector<Node*> data;
+//     int top;
+//     void push(Node* X){
+//         data.push_back(X);
+//         top++;
+//     }
+//     Node* pop(){
+//         return data[top--];
+//     }
+//     bool isempty(){
+//         return top == -1;
+//     }
+//     myStack(){
+//         top = -1;
+//     }
+// }
+class Solution {
+public:
+    
+    vector<int> postorder(Node* root) {
+        
+        vector<int> ans;
+        if(root == NULL){
+            return ans;
+        }else{
+           for(int i = 0; i < (root->children).size(); i++){
+               vector<int> tmp = postorder(root->children[i]);
+               for(int j = 0; j < tmp.size(); j++){
+                   ans.push_back(tmp[j]);
+               }
+           }
+           ans.push_back(root->val);
+        }
+        return ans;
+    }
+        
+
+       
+};
