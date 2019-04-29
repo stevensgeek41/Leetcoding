@@ -10,3 +10,6 @@ string s1;           create an empty string (with 1 '\0' at the end)
 
 3. new
 TreeNode* rootPtr = new TreeNode(val);      it's that easy
+
+4. round
+round(a/2) means no sense if a is an integer, better use round(a/2.0)
