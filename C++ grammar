@@ -13,3 +13,6 @@ TreeNode* rootPtr = new TreeNode(val);      it's that easy
 
 4. round
 round(a/2) means no sense if a is an integer, better use round(a/2.0)
+
+5. sort
+sort(class.begin(),class.end(),compare);           compare should be a static bool member function of the class, if you want a < b, just return a < b
