@@ -1,0 +1,43 @@
+class Solution {
+public:
+    struct cor{
+        int x;
+        int y;
+        int dist;
+
+        cor(int a, int b, int c){
+            x = a;
+            y = b;
+            dist = c;
+        }
+
+    };
+    static bool compare(cor a, cor b){
+        return a.dist < b.dist;
+    }
+    vector<vector<int>> allCellsDistOrder(int R, int C, int r0, int c0) {
+        
+        vector<vector<int>> ans;
+        
+        vector<cor> point;
+        
+        for(int i = 0; i < R; i++){
+            for(int j = 0; j < C; j++){
+                int dist = abs(i - r0) + abs(j - c0);
+                cor tmp(i,j,dist);
+                point.push_back(tmp);
+            }
+        }
+        sort(point.begin(),point.end(),compare);
+        for(int i = 0; i < point.size(); i++){
+            vector<int> tmp;
+            tmp.push_back(point[i].x);
+            tmp.push_back(point[i].y);
+            ans.push_back(tmp);
+        }
+        
+        return ans;
+        
+        
+    }
+};
