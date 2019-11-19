@@ -4,3 +4,4 @@
 4. keep your loop variable consistent
 5. don't forget to check your if/else's span, see if it's really what you need or contain something else
 6. don't mess with your loop variable, make sure it's i++ or i--
+7. if heap-buffer overflow, check your array index!!
